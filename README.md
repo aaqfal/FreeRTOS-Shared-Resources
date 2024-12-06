@@ -1,8 +1,8 @@
-# Access Contention Problems When Using Shared Resource in a Multitasking System
+# Shared Resource
 This project is an implementation of a system based on STM32 that analyze contetion problems when tasks accessing shared resource function in a multitasking system.
 
 ## Description
-This project provides a practical example to understanding about how contention can occure and why it can be a problem. There are two tasks that access the AccessSharedData function. One of the tasks has a higher priority. When 
+This project provides practical examples to understand how contention can occur and why they can become problematic. There are two tasks accessing the AccessSharedData function. One task has higher priority. When the lower-priority task accesses the function (StartFlag = 0) and is performing a write or read operation, the higher-priority task also accesses the same function. This leads to contention. As a result, the previous task cannot complete its work and returns to its initial state to start its task again.
 
 ## Task Overflow
 1. **Initialization**
@@ -19,7 +19,11 @@ This project provides a practical example to understanding about how contention 
    - Turn the Red LED OFF
    - Delay for 0.1 seconds
 7. **Access Shared Data**
-   - 
+   - Check StartFlag
+   - If StartFlag up (1), put it down (0)
+   - Else show an alert
+   - Simulate read/write operation
+   - Set back StartFlag up
 
 ## Hardware Used
 - STM32 Microcontroller
